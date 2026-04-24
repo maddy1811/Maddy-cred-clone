@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
-import { CreditCard, Gift, BarChart3, User } from "lucide-react";
+import { CreditCard, Gift, BarChart3, User, LogOut } from "lucide-react";
 
 interface NavbarProps {
   activeSection: string;
   onNavigate: (section: string) => void;
+  onLogout: () => void;
 }
 
-const Navbar = ({ activeSection, onNavigate }: NavbarProps) => {
+const Navbar = ({ activeSection, onNavigate, onLogout }: NavbarProps) => {
   const navItems = [
     { id: "home", label: "Home", icon: CreditCard },
     { id: "dashboard", label: "Dashboard", icon: BarChart3 },
@@ -53,6 +54,13 @@ const Navbar = ({ activeSection, onNavigate }: NavbarProps) => {
               </button>
             );
           })}
+          <button
+            onClick={onLogout}
+            className="ml-4 flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-destructive transition-colors"
+          >
+            <LogOut size={16} />
+            Logout
+          </button>
         </div>
 
         <div className="md:hidden flex items-center gap-1">
@@ -71,6 +79,9 @@ const Navbar = ({ activeSection, onNavigate }: NavbarProps) => {
               </button>
             );
           })}
+          <button onClick={onLogout} className="p-2 rounded-lg text-muted-foreground hover:text-destructive">
+            <LogOut size={20} />
+          </button>
         </div>
       </div>
     </motion.nav>
