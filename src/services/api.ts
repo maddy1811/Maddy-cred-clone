@@ -15,10 +15,10 @@ API.interceptors.request.use((req) => {
 
 // Auth
 export const signup = (data: { name: string; email: string; password: string }) =>
-  API.post("api/auth/signup", data);
+  API.post("/api/auth/signup", data);
 
 export const login = (data: { email: string; password: string }) =>
-  API.post("api/auth/login", data);
+  API.post("/api/auth/login", data);
 
 // User
 export const getUser = () => API.get("/user");
