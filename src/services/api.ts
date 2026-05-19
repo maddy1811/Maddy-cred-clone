@@ -13,7 +13,7 @@ API.interceptors.request.use((req) => {
   return req;
 });
 
-// Auth
+// production api routes fixed
 export const signup = (data: { name: string; email: string; password: string }) =>
   API.post("/api/auth/signup", data);
 
