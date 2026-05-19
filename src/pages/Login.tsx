@@ -23,6 +23,12 @@ const Login = ({ onLogin }: LoginProps) => {
         : await login({ email, password });
 
       localStorage.setItem("token", res.data.token);
+
+      localStorage.setItem(
+        "user",
+        JSON.stringify(res.data.user)
+      );
+
       onLogin(res.data.user, res.data.token);
     } catch (err: any) {
       setError(err.response?.data?.message || "Something went wrong");
